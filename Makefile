@@ -1,9 +1,9 @@
 BRANCH = "master"
-REPONAME = "multi-file-swagger-docker"
+REPONAME = "vidsyhq/multi-file-swagger-docker"
 VERSION = $(shell cat ./VERSION)
 
 build:
-	docker build -t ${REPONAME}:${VERSION} .
+	@docker build -t ${REPONAME} .
 
 check-version:
 	@echo "=> Checking if VERSION exists as Git tag..."
@@ -18,6 +18,6 @@ push-tag:
 
 push-to-registry:
 	@docker login -e ${DOCKER_EMAIL} -u ${DOCKER_USER} -p ${DOCKER_PASS}
-	@docker tag vidsyhq/${REPONAME}:latest vidsyhq/${REPONAME}:${CIRCLE_TAG}
-	@docker push vidsyhq/${REPONAME}:${CIRCLE_TAG}
-	@docker push vidsyhq/${REPONAME}
+	@docker tag ${REPONAME}:latest ${REPONAME}:${CIRCLE_TAG}
+	@docker push ${REPONAME}:${CIRCLE_TAG}
+	@docker push ${REPONAME}
