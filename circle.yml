@@ -1,0 +1,26 @@
+general:
+  branches:
+    ignore:
+      - master
+
+machine:
+  services:
+    - docker
+
+dependencies:
+  override:
+    - echo "Foo"
+
+test:
+  override:
+    - echo "Foo"
+
+deployment:
+  feature-branch:
+    branch: /^((?!master).)*$/
+    commands:
+      - make check-version
+  hub:
+    tag: /[0-9]+\.[0-9]+\.[0-9]+/
+    commands:
+      - echo "Foo"
