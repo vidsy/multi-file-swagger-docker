@@ -9,7 +9,7 @@
 ```
 docker run \
   -v "`pwd`:/swagger" \
-  multi-file-swagger-docker:latest \
+  vidsyhq/multi-file-swagger-docker:latest \
   root.yml > output.json
 ```
 
