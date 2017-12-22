@@ -3,7 +3,7 @@ REPONAME = "vidsyhq/multi-file-swagger-docker"
 VERSION = $(shell cat ./VERSION)
 
 build:
-	@docker build -t ${REPONAME} .
+	@docker build -t ${REPONAME} --build-arg VERSION=${VERSION} .
 
 check-version:
 	@echo "=> Checking if VERSION exists as Git tag..."
